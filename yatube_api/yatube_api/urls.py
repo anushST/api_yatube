@@ -1,3 +1,4 @@
+from api.constants import API_VERSION
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -6,8 +7,8 @@ from rest_framework.authtoken import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/api-token-auth/', views.obtain_auth_token),
-    path('api/v1/', include('posts.urls')),
+    path(f'api/{API_VERSION}/api-token-auth/', views.obtain_auth_token),
+    path(f'api/{API_VERSION}/', include('api.urls')),
 ]
 
 
